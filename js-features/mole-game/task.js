@@ -26,6 +26,8 @@ const lost = document.getElementById("lost");
         dead.textContent = Number(dead.textContent) + 1;
         if (Number(dead.textContent) >= 10) {
           playing = false;
+          dead.textContent = 0;
+          lost.textContent = 0;          
           alert("Поздравляю, вы победили!");
         }
       } else {
@@ -33,6 +35,8 @@ const lost = document.getElementById("lost");
 
         if (Number(lost.textContent) >= 5) {
           playing = false;
+          dead.textContent = 0;
+          lost.textContent = 0;          
           alert("Вы проиграли.");
         }
       }
