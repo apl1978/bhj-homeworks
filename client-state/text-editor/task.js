@@ -6,5 +6,5 @@ if (storedText) {
 }
 
 editor.oninput = function () {
-  console.log(editor.value);
+  localStorage.setItem("text", editor.value);
 };
