@@ -11,9 +11,10 @@ document.body.append(tip);
 tooltips.forEach((tooltip) => {
   tooltip.addEventListener("click", function (event) {
     event.preventDefault();
-    tip.classList.remove("tooltip_active");
 
-    if (tip.textContent != this.title) {
+    if (tip.textContent == this.title) {
+      tip.classList.toggle("tooltip_active");
+    } else {
       tip.textContent = this.title;
       coord = this.getBoundingClientRect();
       tip.style.top = coord.top + coord.height + "px";
