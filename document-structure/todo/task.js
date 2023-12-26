@@ -20,15 +20,9 @@ function addTask() {
   text.value = "";
 }
 
-text.addEventListener("keydown", (e) => {
-  if (e.key == "Enter" && text.value.length != 0) {
-    addTask();
-    e.preventDefault();
-  }
-});
-
-btn.onclick = function () {
-  if (text.value.length != 0) {
+btn.onclick = function (e) {
+  e.preventDefault();
+  if (text.value.trim().length != 0) {
     addTask();
   }
 };
