@@ -1,7 +1,7 @@
 document.addEventListener("click", delTask);
 function delTask(event) {
   let tar = event.target;
-  if (Array.from(tar.classList).includes("task__remove")) {
+  if (tar.classList.contains("task__remove")) {
     tar.parentElement.remove();
   }
 }
