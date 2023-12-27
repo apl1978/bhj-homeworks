@@ -13,9 +13,10 @@ form.onsubmit = function (event) {
   event.preventDefault();
 
   const xhr = new XMLHttpRequest();
+  xhr.responseType = "json";
   formData = new FormData(form);
   xhr.addEventListener("load", function (event) {
-    let response = JSON.parse(event.target.responseText);
+    let response = event.target.response;
     if (response.success === false) {
       alert("Неверный логин/пароль");
     } else if (response.success === true) {
@@ -23,10 +24,11 @@ form.onsubmit = function (event) {
       localStorage.setItem("id", response.user_id);
     }
   });
-
+  
   xhr.open("POST", "https://students.netoservices.ru/nestjs-backend/auth");
 
   xhr.send(formData);
+  form.reset();
 };
 
 if (storedText) {
